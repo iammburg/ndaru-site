@@ -1,18 +1,10 @@
 ---
-import Navbar from "@/components/Navbar/Navbar";
-import "../styles/global.css";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Ilham Andaru Prabowo</title>
-    </head>
-    <body>
-        <Navbar client:load />
-        <h1>Ilham Andaru Prabowo</h1>
-    </body>
-</html>
+<Layout title="Home">
+    <article>
+        <h1 class="font-bold font-boldonse text-2xl">Ilham Andaru Prabowo</h1>
+        <p>Adalah seorang programmer dan software engineer.</p>
+    </article>
+</Layout>

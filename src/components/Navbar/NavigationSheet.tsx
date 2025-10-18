@@ -15,11 +15,11 @@ export const NavigationSheet = () => {
                 <Logo />
 
                 <div className="mt-12 text-base space-y-4">
-                    <a href="/blog" className="inline-block">
+                    <a href="/" className="inline-block">
                         Home
                     </a>
                 </div>
-                <div className="mt-12 text-base space-y-4">
+                <div className="text-base space-y-4">
                     <a href="/blog" className="inline-block">
                         Blog
                     </a>
