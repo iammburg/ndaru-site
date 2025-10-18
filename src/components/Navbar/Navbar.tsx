@@ -11,7 +11,9 @@ const Navbar = () => {
             <div className="h-full flex items-center justify-between max-w-(--breakpoint-lg) mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-8">
                     <div>
-                        <span className="font-boldonse">Andaru</span>
+                        <a href="/">
+                            <span className="font-boldonse">Andaru</span>
+                        </a>
                     </div>
                 </div>
 
@@ -19,10 +21,10 @@ const Navbar = () => {
                     {/* <Button>
                         Get Started <ArrowUpRight />
                     </Button> */}
+
                     {/* Desktop Menu */}
                     <NavMenu className="hidden md:block" />
                     <ModeToggle />
-
                     {/* Mobile Menu */}
                     <div className="md:hidden">
                         <NavigationSheet />

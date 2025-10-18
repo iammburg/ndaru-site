@@ -8,24 +8,39 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import clsx from "clsx";
 import React, { type ComponentProps } from "react";
 
-export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
-    <NavigationMenu {...props}>
-        <NavigationMenuList className="gap-1 space-x-0 text-sm">
-            <NavigationMenuItem>
-                <Button variant="ghost" asChild>
-                    <a href="/">Home</a>
-                </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-                <Button variant="ghost" asChild>
-                    <a href="/blog">Blog</a>
-                </Button>
-            </NavigationMenuItem>
-        </NavigationMenuList>
-    </NavigationMenu>
-);
+export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
+    const [pathname, setPathname] = React.useState("");
+
+    React.useEffect(() => {
+        setPathname(window.location.pathname);
+    }, []);
+
+    return (
+        <NavigationMenu {...props}>
+            <NavigationMenuList className="gap-1 space-x-0 text-sm">
+                <NavigationMenuItem>
+                    <Button
+                        variant="ghost"
+                        asChild
+                        className={clsx(pathname === "/" && "bg-accent text-accent-foreground")}>
+                        <a href="/">Home</a>
+                    </Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Button
+                        variant="ghost"
+                        asChild
+                        className={clsx(pathname === "/blog" && "bg-accent text-accent-foreground")}>
+                        <a href="/blog">Blog</a>
+                    </Button>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </NavigationMenu>
+    );
+};
 
 const ListItem = React.forwardRef<
     React.ElementRef<"a">,
