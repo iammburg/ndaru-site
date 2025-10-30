@@ -1,5 +1,5 @@
 ---
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/navbar/navbar";
 import "../styles/global.css";
 const { title } = Astro.props;
 ---
@@ -33,7 +33,7 @@ const { title } = Astro.props;
         <!-- Add inside <head> -->
         <script src="https://tweakcn.com/live-preview.min.js"></script>
     </head>
-    <body class="font-plus-jakarta-sans">
+    <body class="font-jakarta-sans">
         <Navbar client:load />
         <main class="h-full flex items-center justify-between max-w-(--breakpoint-lg) mx-auto px-4 sm:px-6 lg:px-8">
             <slot />

@@ -1,5 +1,5 @@
 {
-	"name": "ndaru-site",
+	"name": "daru",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -12,7 +12,7 @@
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^12.6.10",
-		"@astrojs/react": "^4.4.0",
+		"@astrojs/react": "4.4.1",
 		"@radix-ui/react-dialog": "^1.1.15",
 		"@radix-ui/react-dropdown-menu": "^2.1.16",
 		"@radix-ui/react-navigation-menu": "^1.2.14",
@@ -20,7 +20,7 @@
 		"@tailwindcss/vite": "^4.1.14",
 		"@types/react": "^19.2.2",
 		"@types/react-dom": "^19.2.2",
-		"astro": "^5.14.5",
+		"astro": "5.15.2",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.546.0",
@@ -31,6 +31,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "^24.8.1",
+		"prettier": "^3.6.2",
+		"prettier-plugin-tailwindcss": "^0.7.1",
 		"tw-animate-css": "^1.4.0",
 		"wrangler": "^4.43.0"
 	}
