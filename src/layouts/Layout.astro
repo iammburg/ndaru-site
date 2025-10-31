@@ -1,7 +1,27 @@
 ---
 import Navbar from "@/components/navbar/navbar";
+import StructuredData from "@/components/seo/structured-data.astro";
 import "../styles/global.css";
-const { title } = Astro.props;
+
+interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    ogImage?: string;
+    ogType?: string;
+    canonicalURL?: string;
+}
+
+const {
+    title = "Ilham Andaru Prabowo",
+    description = "Ilham Andaru Prabowo's personal website, blog, and articles. Programmer, Full-stack Web Developer, Software Engineer, book and movies enthusiast.",
+    keywords = "ilham andaru prabowo, ndaru, daru, programming, artikel buku sastra, books, literature, movies",
+    ogImage = "/og-image.jpg",
+    ogType = "website",
+    canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+} = Astro.props;
+
+const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham Andaru Prabowo`;
 ---
 
 <script is:inline>
@@ -23,15 +43,52 @@ const { title } = Astro.props;
     }
 </script>
 
-<html lang="en">
+<html lang="id">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title} - Ilham Andaru Prabowo</title>
-        <!-- Add inside <head> -->
-        <script src="https://tweakcn.com/live-preview.min.js"></script>
+
+        <!-- Google Search Console Verification -->
+        <meta name="google-site-verification" content="YH683Yl0_Nuv6gVZf-26WiBikQfCKGF_FJl0dmAL3cY" />
+
+        <!-- Primary Meta Tags -->
+        <title>{fullTitle}</title>
+        <meta name="title" content={fullTitle} />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content="Ilham Andaru Prabowo" />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Sitemap -->
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+        <meta property="og:site_name" content="Ilham Andaru Prabowo" />
+        <meta property="og:locale" content="id_ID" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalURL} />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+        <!-- Additional SEO -->
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="theme-color" content="#000000" />
+
+        <!-- Structured Data -->
+        <StructuredData type="WebSite" />
     </head>
     <body class="font-jakarta-sans">
         <Navbar client:load />

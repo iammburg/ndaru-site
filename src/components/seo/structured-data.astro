@@ -1,0 +1,46 @@
+---
+interface Props {
+    type?: "Person" | "WebSite" | "Article" | "Blog";
+    data?: Record<string, any>;
+}
+
+const { type = "Person", data = {} } = Astro.props;
+
+const defaultPersonData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ilham Andaru Prabowo",
+    url: Astro.site?.href,
+    jobTitle: "Software Engineer",
+    description:
+        "Ilham Andaru Prabowo's personal website, blog, and articles. Programmer, Full-stack Web Developer, Software Engineer, book and movies enthusiast.",
+    ...data,
+};
+
+const defaultWebSiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Ilham Andaru Prabowo",
+    url: Astro.site?.href,
+    description:
+        "Ilham Andaru Prabowo's personal website, blog, and articles. Programmer, Full-stack Web Developer, Software Engineer, book and movies enthusiast.",
+    author: {
+        "@type": "Person",
+        name: "Ilham Andaru Prabowo",
+    },
+    ...data,
+};
+
+const getStructuredData = () => {
+    switch (type) {
+        case "Person":
+            return defaultPersonData;
+        case "WebSite":
+            return defaultWebSiteData;
+        default:
+            return { "@context": "https://schema.org", "@type": type, ...data };
+    }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(getStructuredData())} />
