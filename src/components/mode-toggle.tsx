@@ -15,16 +15,20 @@ export function ModeToggle() {
   >("theme-light");
 
   React.useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setThemeState(isDarkMode ? "dark" : "theme-light");
+    if (typeof document !== "undefined") {
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      setThemeState(isDarkMode ? "dark" : "theme-light");
+    }
   }, []);
 
   React.useEffect(() => {
-    const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      const isDark =
+        theme === "dark" ||
+        (theme === "system" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    }
   }, [theme]);
 
   return (

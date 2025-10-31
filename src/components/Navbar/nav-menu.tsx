@@ -13,7 +13,11 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
   const [pathname, setPathname] = React.useState("");
 
   React.useEffect(() => {
-    setPathname(window.location.pathname);
+    if (typeof window !== "undefined") {
+      // Remove trailing slash for consistent comparison
+      const path = window.location.pathname.replace(/\/$/, "") || "/";
+      setPathname(path);
+    }
   }, []);
 
   return (

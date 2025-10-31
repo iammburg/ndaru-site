@@ -6,11 +6,13 @@ interface Props {
 
 const { type = "Person", data = {} } = Astro.props;
 
+const siteUrl = Astro.site ? Astro.site.href : "https://daru.pages.dev/";
+
 const defaultPersonData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Ilham Andaru Prabowo",
-    url: Astro.site?.href,
+    url: siteUrl,
     jobTitle: "Software Engineer",
     description:
         "Ilham Andaru Prabowo's personal website, blog, and articles. Programmer, Full-stack Web Developer, Software Engineer, book and movies enthusiast.",
@@ -21,7 +23,7 @@ const defaultWebSiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Ilham Andaru Prabowo",
-    url: Astro.site?.href,
+    url: siteUrl,
     description:
         "Ilham Andaru Prabowo's personal website, blog, and articles. Programmer, Full-stack Web Developer, Software Engineer, book and movies enthusiast.",
     author: {

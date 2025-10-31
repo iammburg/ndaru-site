@@ -2,7 +2,7 @@ import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import { ModeToggle } from "../mode-toggle";
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <nav className="bg-background sticky top-0 z-50 h-16 w-full border-b">
       <div className="mx-auto flex h-full max-w-(--breakpoint-lg) items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -26,6 +26,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
