@@ -21,7 +21,7 @@ const {
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
-const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham Andaru Prabowo`;
+// const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham Andaru Prabowo`;
 ---
 
 <script is:inline>
@@ -54,8 +54,8 @@ const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham A
         <meta name="google-site-verification" content="YH683Yl0_Nuv6gVZf-26WiBikQfCKGF_FJl0dmAL3cY" />
 
         <!-- Primary Meta Tags -->
-        <title>{fullTitle}</title>
-        <meta name="title" content={fullTitle} />
+        <title>{title}</title>
+        <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content="Ilham Andaru Prabowo" />
@@ -69,7 +69,7 @@ const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham A
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={ogType} />
         <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={fullTitle} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={new URL(ogImage, Astro.site)} />
         <meta property="og:site_name" content="Ilham Andaru Prabowo" />
@@ -78,7 +78,7 @@ const fullTitle = title === "Ilham Andaru Prabowo" ? title : `${title} - Ilham A
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={canonicalURL} />
-        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 

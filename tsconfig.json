@@ -14,7 +14,7 @@
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
