@@ -27,9 +27,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      // Filter pages that should not be included in the sitemap
-      filter: (page) => !page.includes('/admin') && !page.includes('/draft'),
-      // i18n configuration if the website is multilingual (optional)
+      filter: (page) => !page.includes('/login') && !page.includes('/register') && !page.includes('/admin'),
       i18n: {
         defaultLocale: 'en',
         locales: {
