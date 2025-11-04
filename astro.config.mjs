@@ -31,10 +31,10 @@ export default defineConfig({
       filter: (page) => !page.includes('/admin') && !page.includes('/draft'),
       // i18n configuration if the website is multilingual (optional)
       i18n: {
-        defaultLocale: 'id',
+        defaultLocale: 'en',
         locales: {
-          id: 'id-ID',
           en: 'en-US',
+          id: 'id-ID',
         },
       },
     })
